@@ -50,32 +50,7 @@ mysqli_data_seek($result, 0);
 </head>
 <body class="app-body">
 
-<header class="navbar">
-    <div class="navbar-inner">
-        <a class="brand" href="index.php">
-            <span class="brand-mark">
-                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                </svg>
-            </span>
-            <span class="brand-text">SaranaCare<span class="brand-dot">.</span></span>
-        </a>
-        <div class="navbar-right">
-            <span class="role-chip role-guru">Guru</span>
-            <div class="user-chip">
-                <span class="avatar"><?= htmlspecialchars(substr($_SESSION['nama_lengkap'], 0, 1)) ?></span>
-                <span class="user-meta">
-                    <strong><?= htmlspecialchars($_SESSION['nama_lengkap']) ?></strong>
-                    <small>Wali Kelas</small>
-                </span>
-            </div>
-            <a href="../auth/logout.php" class="btn btn-logout" title="Keluar">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
-                <span>Keluar</span>
-            </a>
-        </div>
-    </div>
-</header>
+<?php include __DIR__ . '/../includes/sidebar.php'; ?>
 
 <main class="app-main">
     <?php if (isset($_SESSION['flash_success'])): ?>
@@ -91,20 +66,6 @@ mysqli_data_seek($result, 0);
             <span class="eyebrow">Dashboard Guru</span>
             <h1>Verifikasi Pengaduan Siswa</h1>
             <p>Kelola dan verifikasi laporan kerusakan sarana dari siswa kelas <strong><?= htmlspecialchars($nama_kelas) ?></strong>.</p>
-        </div>
-        <div class="page-actions">
-            <a href="siswa.php" class="btn btn-primary">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
-                Manajemen Siswa
-            </a>
-            <a href="profil.php" class="btn btn-soft">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="18" y1="8" x2="23" y2="8"/><line x1="18" y1="14" x2="23" y2="14"/></svg>
-                Profil Guru
-            </a>
-            <span class="role-chip role-guru">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
-                Kelas <?= htmlspecialchars($nama_kelas) ?>
-            </span>
         </div>
     </div>
 

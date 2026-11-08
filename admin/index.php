@@ -41,32 +41,7 @@ mysqli_data_seek($result, 0);
 </head>
 <body class="app-body">
 
-<header class="navbar">
-    <div class="navbar-inner">
-        <a class="brand" href="index.php">
-            <span class="brand-mark">
-                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                </svg>
-            </span>
-            <span class="brand-text">SaranaCare<span class="brand-dot">.</span></span>
-        </a>
-        <div class="navbar-right">
-            <span class="role-chip role-admin">Admin</span>
-            <div class="user-chip">
-                <span class="avatar"><?= htmlspecialchars(substr($_SESSION['nama_lengkap'], 0, 1)) ?></span>
-                <span class="user-meta">
-                    <strong><?= htmlspecialchars($_SESSION['nama_lengkap']) ?></strong>
-                    <small>Administrator</small>
-                </span>
-            </div>
-            <a href="../auth/logout.php" class="btn btn-logout" title="Keluar">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
-                <span>Keluar</span>
-            </a>
-        </div>
-    </div>
-</header>
+<?php include __DIR__ . '/../includes/sidebar.php'; ?>
 
 <main class="app-main">
     <?php if (isset($_SESSION['flash_success'])): ?>
@@ -82,32 +57,6 @@ mysqli_data_seek($result, 0);
             <span class="eyebrow">Dashboard Administrator</span>
             <h1>Kelola Pengaduan Sekolah</h1>
             <p>Tindak lanjuti laporan yang telah diverifikasi guru dan pantau progres perbaikannya.</p>
-        </div>
-        <div class="page-actions">
-            <a href="kelas.php" class="btn btn-soft">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="21" x2="21" y2="3"/></svg>
-                Manajemen Kelas
-            </a>
-            <a href="kategori.php" class="btn btn-soft">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1"/><path d="M4 21a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
-                Manajemen Kategori
-            </a>
-            <a href="jurusan.php" class="btn btn-soft">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2z"/><path d="M12 4L9.5 8h5L12 4z"/><path d="M12 18L8.5 14h5L12 18z"/></svg>
-                Manajemen Jurusan
-            </a>
-            <a href="pengguna.php" class="btn btn-soft">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                Manajemen Pengguna
-            </a>
-            <a href="profil.php" class="btn btn-soft">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="18" y1="8" x2="23" y2="8"/><line x1="18" y1="14" x2="23" y2="14"/></svg>
-                Profil Admin
-            </a>
-            <span class="role-chip role-admin">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                Administrator
-            </span>
         </div>
     </div>
 

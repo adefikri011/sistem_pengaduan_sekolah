@@ -137,32 +137,7 @@ $kelas_list = mysqli_query($conn, "SELECT * FROM kelas ORDER BY nama_kelas ASC")
 </head>
 <body class="app-body">
 
-<header class="navbar">
-    <div class="navbar-inner">
-        <a class="brand" href="index.php">
-            <span class="brand-mark">
-                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                </svg>
-            </span>
-            <span class="brand-text">SaranaCare<span class="brand-dot">.</span></span>
-        </a>
-        <div class="navbar-right">
-            <span class="role-chip role-admin">Admin</span>
-            <div class="user-chip">
-                <span class="avatar"><?= htmlspecialchars(substr($_SESSION['nama_lengkap'], 0, 1)) ?></span>
-                <span class="user-meta">
-                    <strong><?= htmlspecialchars($_SESSION['nama_lengkap']) ?></strong>
-                    <small>Administrator</small>
-                </span>
-            </div>
-            <a href="../auth/logout.php" class="btn btn-logout" title="Keluar">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
-                <span>Keluar</span>
-            </a>
-        </div>
-    </div>
-</header>
+<?php include __DIR__ . '/../includes/sidebar.php'; ?>
 
 <main class="app-main">
     <?php if (isset($_SESSION['flash_success'])): ?>
@@ -185,12 +160,6 @@ $kelas_list = mysqli_query($conn, "SELECT * FROM kelas ORDER BY nama_kelas ASC")
             <span class="eyebrow">Manajemen Pengguna</span>
             <h1>Data Pengguna Sekolah</h1>
             <p>Kelola akun Admin, Guru, dan Siswa. Password awal untuk Guru/Siswa adalah NIP/NISN mereka.</p>
-        </div>
-        <div class="page-actions">
-            <a href="index.php" class="btn btn-ghost">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                Kembali
-            </a>
         </div>
     </div>
 
@@ -336,6 +305,7 @@ $kelas_list = mysqli_query($conn, "SELECT * FROM kelas ORDER BY nama_kelas ASC")
                     </tr>
                 </thead>
                 <tbody>
+                    <?php mysqli_data_seek($users, 0); ?>
                     <?php if (mysqli_num_rows($users) > 0): ?>
                         <?php $no = 1; while ($row = mysqli_fetch_assoc($users)): ?>
                             <?php

@@ -86,32 +86,7 @@ $kelas = mysqli_query($conn, "SELECT k.*, u.nama_lengkap AS nama_guru, j.nama_ju
 </head>
 <body class="app-body">
 
-<header class="navbar">
-    <div class="navbar-inner">
-        <a class="brand" href="index.php">
-            <span class="brand-mark">
-                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                </svg>
-            </span>
-            <span class="brand-text">SaranaCare<span class="brand-dot">.</span></span>
-        </a>
-        <div class="navbar-right">
-            <span class="role-chip role-admin">Admin</span>
-            <div class="user-chip">
-                <span class="avatar"><?= htmlspecialchars(substr($_SESSION['nama_lengkap'], 0, 1)) ?></span>
-                <span class="user-meta">
-                    <strong><?= htmlspecialchars($_SESSION['nama_lengkap']) ?></strong>
-                    <small>Administrator</small>
-                </span>
-            </div>
-            <a href="../auth/logout.php" class="btn btn-logout" title="Keluar">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
-                <span>Keluar</span>
-            </a>
-        </div>
-    </div>
-</header>
+<?php include __DIR__ . '/../includes/sidebar.php'; ?>
 
 <main class="app-main">
     <?php if (isset($_SESSION['flash_success'])): ?>
@@ -127,12 +102,6 @@ $kelas = mysqli_query($conn, "SELECT k.*, u.nama_lengkap AS nama_guru, j.nama_ju
             <span class="eyebrow">Manajemen Kelas</span>
             <h1>Data Kelas Sekolah</h1>
             <p>Kelola nama kelas, jurusan, dan tetapkan wali kelas yang mengampu.</p>
-        </div>
-        <div class="page-actions">
-            <a href="index.php" class="btn btn-ghost">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                Kembali
-            </a>
         </div>
     </div>
 
